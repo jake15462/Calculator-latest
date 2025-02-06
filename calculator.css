@@ -96,10 +96,25 @@ svg g {
   }
 }
 
-@media screen and (max-height: 400px) {
-  .calculator__inner {
-    display: flex;
-    flex-direction: row;
+@media screen and (max-height: 750px) and (max-width: 600px) {
+  button {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media only screen and (max-height: 850px) and (max-width: 600px) {
+  .btn-container {
+    gap: 0;
+    row-gap: 2%;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  button {
+    border-radius: 10px;
+    width: 80%;
+    height: 85%;
   }
 }
 
