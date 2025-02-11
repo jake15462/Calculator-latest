@@ -133,5 +133,9 @@ svg g {
 }
 
 .history-main-container {
-  display: none;
+  position: absolute;
+  bottom: 0;
+  left:0;
+  right: 0;
+  background-color: #333;
 }

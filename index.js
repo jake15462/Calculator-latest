@@ -18,27 +18,20 @@ function clearAll() {
   document.querySelector(".screen__input").value = "";
 }
 
-function backspace() {
-  document.querySelector(".screen__input").value = document.querySelector(".screen__input").value.slice(0, -1);
-}
-
 function equalClick() {
   const input = document.querySelector(".screen__input");
 
-  //appending all valid keys to values
-  const values = /^[0-9\.\+\-\*/\(\)]+$/;
   const lastDigit = input.value.charAt(input.value.length - 1);
   const operators = "+-/*";
 
-  calculated = true;
-
-  //checks if the calculation contains valid keys
-  if (values.test(input.value) && input?.value?.trim() !== "" && !operators.includes(lastDigit)) {
-    input.value = eval(input.value);
-
-    return;
+  if (input?.value?.trim() !== "" && !operators.includes(lastDigit)) {
+    try {
+      input.value = new Function(`return ${input.value}`)();
+    } catch (e) {
+      input.value = "Error";
+    }
   } else {
-    document.querySelector(".screen__input").value = "Error";
+    input.value = "Error";
   }
 }
 
@@ -114,9 +107,7 @@ function showHistory() {
 }
 
 function closeHistory() {
-  setTimeout(function() {
     document.querySelector(".history-main-container").style.display = "none";
-  }, 300);
   document.querySelector(".history-container").style = "height: 0%;";
 }
 
