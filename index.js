@@ -101,9 +101,6 @@ function clearHistory() {
 
 function showHistory() {
   document.querySelector(".history-main-container").style.display = "flex"
-  setTimeout(function() {
-    document.querySelector(".history-container").style.height = "50%";
-  }, 1);
 }
 
 function closeHistory() {
