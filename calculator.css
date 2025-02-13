@@ -7,6 +7,7 @@ body {
   align-items: center;
   overflow-y: hidden;
   background-color: #000;
+  margin: 0;
 }
 
 .calculator__inner, .calculator {
@@ -25,15 +26,14 @@ body {
   grid-template-columns: auto auto auto auto;
   gap: 10px;
   height: 60dvh;
-  width: 100%;
+  width: calc(100% - 120px);
+  margin: 0px 60px;
 }
 
 button {
   border-radius: 30px;
-  width: 50%;
+  width: 100%;
   position: relative;
-  left: 50%;
-  transform: translateX(-50%);
   background-color: rgba(255, 255, 255, 0.1);
   border: none;
   color: #fff;
@@ -41,7 +41,7 @@ button {
 }
 
 hr {
-  margin: 20px 5%;
+  margin: 20px 60px;
   color: rgba(255, 255, 255, 0.1);
   border: none;
   height: 1px;
@@ -77,8 +77,100 @@ svg g {
   color: rgb(91, 226, 24);
 }
 
+.history-container__close {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: none;
+  background-color: rgb(200, 102, 102);
+  border-radius: 0 0 10px 0;
+  width: 20%;
+  font-size: 18px;
+  font-weight: 600;
+  height: 50px;
+  min-height: 36px;
+  min-width: 70px;
+}
+
+.history-container__clear {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: auto;
+  transform: none;
+  background-color: rgb(200, 102, 102);
+  border-radius: 0 0 0 10px;
+  width: 20%;
+  font-size: 18px;
+  font-weight: 600;
+  height: 50px;
+  min-height: 36px;
+  min-width: 70px;
+}
+
+.history-main-container {
+  position: relative;
+  display: none;
+  width: 40%;
+  height: 100%;
+  background-color: #333;
+}
+
+#searchHistory {
+  color: #fff;
+  margin: 60px 10px;
+  font-size: 22px;
+  font-family: sans-serif;
+}
+
+@media screen and (max-width: 900px) {
+  .history-container__close {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: none;
+    background-color: rgb(200, 102, 102);
+    border-radius: 0 0 10px 0;
+    width: 20%;
+    font-size: 20px;
+    height: 50px;
+    min-height: 36px;
+    min-width: 70px;
+  }
+  
+  .history-container__clear {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: auto;
+    transform: none;
+    background-color: rgb(200, 102, 102);
+    border-radius: 0 0 0 10px;
+    width: 20%;
+    font-size: 20px;
+    height: 50px;
+    min-height: 36px;
+    min-width: 70px;
+  }
+  
+  .history-main-container {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left:0;
+    right: 0;
+    background-color: #333;
+    height: 50%;
+    width: 100%;
+  }
+  
+  .history-container {
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 650px) {
-  button {
+  .btnContainer button {
     border-radius: 50%;
     width: 90px;
     height: 90px;
@@ -88,11 +180,6 @@ svg g {
     background-color: rgba(255, 255, 255, 0.1);
     border: none;
     color: #fff;
-  }
-
-  .btn-container {
-    gap: 0;
-    row-gap: 5%;
   }
 }
 
@@ -113,6 +200,7 @@ svg g {
 @media screen and (max-width: 320px) {
   button {
     border-radius: 10px;
+    width: 100%;
     max-width: 70px;
     width: 100%;
     height: 70px;
@@ -127,6 +215,14 @@ svg g {
   .btn-container {
     gap: 2%;
   }
+
+  .history-container__close {
+    font-size: 14px;
+  }
+  
+  .history-container__clear {
+    font-size: 14px;
+  }
 }
 
 @media screen and (max-height: 750px) and (max-width: 600px) {
@@ -138,8 +234,7 @@ svg g {
 
 @media only screen and (max-height: 850px) and (max-width: 600px) {
   .btn-container {
-    gap: 0;
-    row-gap: 2%;
+    gap: 2%;
   }
 }
 
@@ -149,13 +244,4 @@ svg g {
     width: 80%;
     height: 85%;
   }
-}
-
-.history-main-container {
-  display: none;
-  position: absolute;
-  bottom: 0;
-  left:0;
-  right: 0;
-  background-color: #333;
 }
