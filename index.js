@@ -81,7 +81,7 @@ document.addEventListener("keydown", keyFunction);
 function appendHistory() {
   let search = document.querySelector(".screen__input").value;
   if (/^[0-9\.\+\-\*/\(\)]+$/.test(search)) {
-    let result = eval(search);
+    let result = new Function(`return ${search}`)();
     let currentHistory = localStorage.getItem("searchHistory") || "";
     let newEntry = search + " = " + result;
     if (currentHistory) {
@@ -101,16 +101,12 @@ function clearHistory() {
 
 function showHistory() {
   document.querySelector(".history-main-container").style.display = "flex"
+  document.querySelector(".search__history").textContent = "⨯"
 }
 
 function closeHistory() {
     document.querySelector(".history-main-container").style.display = "none";
-  document.querySelector(".history-container").style = "height: 0%;";
+    document.querySelector(".search__history").textContent = "⨯"
 }
 
 document.getElementById("searchHistory").innerHTML = localStorage.getItem("searchHistory")
-
-function autoScroll() {
-  let screenInput = document.querySelector(".screen__input");
-  screenInput.scrollRight = screenInput.scrollWidth;
-}
