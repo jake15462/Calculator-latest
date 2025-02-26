@@ -37,6 +37,7 @@ function equalClick() {
   } else {
     input.value = "Error";
   }
+  calculated = true;
 }
 
 function keyFunction({ key }) {
