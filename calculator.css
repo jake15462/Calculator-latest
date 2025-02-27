@@ -135,7 +135,7 @@ svg g {
   width: calc(100% - 20px);
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 767px) {
   .history-container__close {
     position: absolute;
     top: 0;
