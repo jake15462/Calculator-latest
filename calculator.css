@@ -180,11 +180,6 @@ svg g {
     height: 50%;
     width: 100%;
   }
-
-  .search__history svg {
-    height: 18px;
-    width: 18px;
-  }
   
   .history-container {
     width: 100%;
@@ -222,5 +217,10 @@ svg g {
     border: none;
     color: #fff;
     font-size: 24px;
+  }
+
+  .search__history svg {
+    height: 18px;
+    width: 18px;
   }
 }
