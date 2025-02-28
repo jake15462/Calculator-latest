@@ -5,7 +5,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow-y: hidden;
+  overflow: hidden;
   background-color: #000;
   margin: 0;
 }
@@ -111,28 +111,31 @@ svg g {
 
 .history-main-container {
   position: relative;
-  display: none;
+  display: flex;
   width: 40%;
   height: 100%;
   background-color: #333;
+  transition: 0.5s;
 }
 
 #searchHistory {
   color: #fff;
-  margin: 50px 10px;
+  margin: 16px 10px;
   font-size: 22px;
   font-family: sans-serif;
   overflow-y: scroll;
   height: calc(100% - 60px);
   width: 100%;
+  min-width: 200px;
+}
+
+.search__history svg {
+  height: 20px;
+  width: 20px;
 }
 
 #searchHistory::-webkit-scrollbar {
   display: none;
-}
-
-.history-container {
-  width: calc(100% - 20px);
 }
 
 @media screen and (max-width: 767px) {
@@ -184,16 +187,13 @@ svg g {
 }
 
 @media screen and (max-width: 640px) {
-  .btnContainer button {
-    border-radius: 50%;
-    width: 90px;
-    height: 90px;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(255, 255, 255, 0.1);
-    border: none;
-    color: #fff;
+  .btn-container__button {
+    font-size: 18px;
+  }
+
+  svg {
+    height: 18px;
+    width: 17px;
   }
 
   .btn-container {
